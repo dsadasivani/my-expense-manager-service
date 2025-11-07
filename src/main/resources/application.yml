@@ -1,0 +1,31 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/expense_db
+    username: postgres
+    password: admin
+    driver-class-name: org.postgresql.Driver
+#    hikari:
+#      data-source-properties:
+#        options: "-c TimeZone=UTC"
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        jdbc.time_zone: UTC
+    open-in-view: false
+
+logging:
+  level:
+    org.hibernate.SQL: warn
+
+app:
+  security:
+    jwt:
+      secret: replace-with-long-random-secret-string
+      issuer: expense-manager
+      accessMinutes: 60
