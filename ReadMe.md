@@ -106,6 +106,24 @@ Then visit: `http://localhost:8080/swagger-ui.html`
 ---
 
 ## 🐳 Docker
+
+### Build the application image
+```bash
+docker build -t expense-manager-service .
+```
+
+### Run the container
+```bash
+docker run --rm -p 8080:8080 --name expense-manager-service \
+  -e SPRING_DATASOURCE_URL=jdbc:postgresql://host.docker.internal:5432/expense_manager \
+  -e SPRING_DATASOURCE_USERNAME=expense_user \
+  -e SPRING_DATASOURCE_PASSWORD=expense_pass \
+  expense-manager-service
+```
+
+> **Tip:** On Linux, replace `host.docker.internal` with the host machine's IP (for example, `172.17.0.1`) or run Postgres in another container and connect them via a Docker network.
+
+### Optional: PostgreSQL companion container
 ```yaml
 version: "3.9"
 services:
