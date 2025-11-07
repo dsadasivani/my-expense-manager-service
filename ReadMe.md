@@ -123,9 +123,8 @@ volumes:
 
 ---
 
-## 🤝 Run Frontend + Backend
+## 🤝 Run Backend
 1. Start Postgres
 2. Run backend: `./gradlew bootRun`
-3. Run frontend: `pnpm start`
-4. Visit [http://localhost:4200](http://localhost:4200)
+3. Visit [http://localhost:8080](http://localhost:8080)
 
